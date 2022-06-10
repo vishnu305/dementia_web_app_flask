@@ -3,7 +3,5 @@ gunicorn
 werkzeug
 numpy
 deepface
-opencv-python
-os
 tensorflow
 Pillow
