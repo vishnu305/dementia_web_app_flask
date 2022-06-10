@@ -2,8 +2,6 @@ from flask import Flask,render_template,request,flash,redirect,url_for
 from werkzeug.utils import secure_filename
 import numpy as np
 from deepface import DeepFace
-# import cv2
-# import os
 import pickle
 from tensorflow import keras
 from PIL import Image
@@ -68,19 +66,16 @@ def image_page():
             filename = secure_filename(file.filename)
             # fullname=os.path.join(app.config['UPLOAD_FOLDER'], filename)
             # file.save(fullname)
-            image = Image.open(file)
-            image=np.array(image)
-            result = DeepFace.analyze(image,actions=['emotion'])
-            print(result)
-            return render_template('resultimage.html',filename="",resultemotion=result['dominant_emotion'])
-            # try:
-            #     image = Image.open(file)
-            #     result = DeepFace.analyze(image,actions=['emotion'])
-            #     print(result)
-            #     return render_template('resultimage.html',filename="",resultemotion=result['dominant_emotion'])
-            # except:
-            #     flash('Please recheck image clarity and reupload again.')
-            #     return redirect(url_for('image_page'))
+            
+            try:
+                image = Image.open(file)
+                image = np.array(image)
+                result = DeepFace.analyze(image,actions=['emotion'])
+                print(result)
+                return render_template('resultimage.html',filename="",resultemotion=result['dominant_emotion'])
+            except:
+                flash('Please recheck image clarity and reupload again.')
+                return redirect(url_for('image_page'))
         else:
             flash('Allowed image types are - png, jpg, jpeg, gif')
             return redirect(url_for('image_page'))
