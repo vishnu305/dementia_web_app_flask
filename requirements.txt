@@ -4,6 +4,6 @@ werkzeug
 numpy
 deepface
 opencv-python
-os-sys
+os-sys==2.1.4
 tensorflow
 Pillow
