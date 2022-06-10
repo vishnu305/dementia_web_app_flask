@@ -3,7 +3,7 @@ gunicorn
 werkzeug
 numpy
 deepface
-cv2
-os
+opencv-python
+os-sys
 tensorflow
-PIL
+Pillow
