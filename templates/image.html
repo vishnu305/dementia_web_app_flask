@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title>Health Diagnosis ML</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename = 'style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+       <nav>
+        <input id="nav-toggle" type="checkbox" />
+        <div class="logo"><strong>D</strong>ementia</div>
+        <ul class="links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#2">About</a></li>
+          <li><a href="/prediction">Prediction</a></li>
+          <li><a href="/#4">Contact</a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </label>
+      </nav>
+    </header>
+    <p style="margin-top:120px;">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li style="margin-left:10%;">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    <form action="/image" method="POST" enctype="multipart/form-data">
+      <div class="formclass1">
+        <label>Upload Image :</label>
+        <input type="file" name="file" /><br />
+        <br />
+        <input class="btn btn-primary" type="submit" />
+      </div>
+    </form>
+    <div style="margin-top:300px" id=4 class="footer111">
+        <div className="footer11">
+        <h1 style=" font-size: 30px; margin-bottom: 15px" >Contact</h1>
+        <div
+          style="
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px"
+          
+        >
+          <a href=""><img style="width: 20px; height: 20px" src="{{ url_for('static',filename = 'twitter.png')}}" /></a>
+          <a href=""><img style="width: 20px; height: 20px" src="{{ url_for('static',filename = 'facebook.png')}}" /></a>
+          <a href=""><img style="width: 20px; height: 20px" src="{{ url_for('static',filename = 'linkedin.png')}}" /></a>
+          <a href=""><img style="width: 20px; height: 20px" src="{{ url_for('static',filename = 'instagram.png')}}" /></a>
+        </div>
+      </div>
+      <div className="footer1">
+        <h1
+         style=" font-size: 30px; margin-bottom: 15px;text-align:center"
+        >
+          Other links
+        </h1>
+        <p style="text-align: center; margin-bottom: 10px" ><a style="text-decoration:none;color:white" href="/">Home</a></p>
+        <p style="text-align: center; margin-bottom: 10px" ><a style="text-decoration:none;color:white" href="/prediction">Prediction</a></p>
+        <p style="text-align: center; margin-bottom: 10px" ><a style="text-decoration:none;color:white" href="/#2">About</a></p>
+      </div>
+    </div>
+    <h5 style="color:white;background:rgba(255, 123, 123, 0.61);padding:20px;text-align:center;margin:0">copyright@Afrin Siddqui<h5>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+flask
+gunicorn
+werkzeug
+numpy
+deepface
+cv2
+os
+tensorflow
+PIL
