@@ -2,7 +2,7 @@ from flask import Flask,render_template,request,flash,redirect,url_for
 from werkzeug.utils import secure_filename
 import numpy as np
 # from deepface import DeepFace
-import pickle
+# import pickle
 from tensorflow import keras
 from PIL import Image
 
@@ -23,29 +23,29 @@ def front_page():
 @app.route('/prediction')
 def predictionnn_page():
     return render_template('prediction.html')
-@app.route('/dementia',methods=['GET','POST'])
-def dementia_page():
-    if request.method == 'GET':
-        return render_template('dementia.html')
-    else:
-        age = float(request.form['age'])
-        sex = float(request.form['sex'])
-        educ = float(request.form['educ'])
-        ses = float(request.form['ses'])
-        mmse = float(request.form['mmse'])
-        etiv = float(request.form['etiv'])
-        nwbv = float(request.form['nwbv'])
-        asf = float(request.form['asf'])
+# @app.route('/dementia',methods=['GET','POST'])
+# def dementia_page():
+#     if request.method == 'GET':
+#         return render_template('dementia.html')
+#     else:
+#         age = float(request.form['age'])
+#         sex = float(request.form['sex'])
+#         educ = float(request.form['educ'])
+#         ses = float(request.form['ses'])
+#         mmse = float(request.form['mmse'])
+#         etiv = float(request.form['etiv'])
+#         nwbv = float(request.form['nwbv'])
+#         asf = float(request.form['asf'])
         
-        rfc = pickle.load(open('./static/alzheimer_model.pkl','rb'))
-        testing_data = np.array([[sex,age,educ,ses,mmse,etiv,nwbv,asf]])
-        prediction = rfc.predict(testing_data)
-        if prediction[0] == 1:
-            senddata="The Chances of Getting Dementia disease is very high."
-        else:
-            senddata="The Chances of Getting Dementia disease is very less."
+#         rfc = pickle.load(open('./static/alzheimer_model.pkl','rb'))
+#         testing_data = np.array([[sex,age,educ,ses,mmse,etiv,nwbv,asf]])
+#         prediction = rfc.predict(testing_data)
+#         if prediction[0] == 1:
+#             senddata="The Chances of Getting Dementia disease is very high."
+#         else:
+#             senddata="The Chances of Getting Dementia disease is very less."
 
-        return render_template('result.html',resultvalue=senddata)
+#         return render_template('result.html',resultvalue=senddata)
 
 # @app.route('/image',methods=['GET','POST'])
 # def image_page():
