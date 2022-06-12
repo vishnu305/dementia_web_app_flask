@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request,flash,redirect,url_for
 from werkzeug.utils import secure_filename
 import numpy as np
-from deepface import DeepFace
+# from deepface import DeepFace
 import pickle
 from tensorflow import keras
 from PIL import Image
@@ -47,38 +47,38 @@ def dementia_page():
 
         return render_template('result.html',resultvalue=senddata)
 
-@app.route('/image',methods=['GET','POST'])
-def image_page():
-    if request.method == 'GET':
-        return render_template('image.html')
-    else:
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(url_for('image_page'))
+# @app.route('/image',methods=['GET','POST'])
+# def image_page():
+#     if request.method == 'GET':
+#         return render_template('image.html')
+#     else:
+#         if 'file' not in request.files:
+#             flash('No file part')
+#             return redirect(url_for('image_page'))
         
-        file = request.files['file']
-        if file.filename == '':
-            flash('No image selected for uploading')
-            return redirect(url_for('image_page'))
+#         file = request.files['file']
+#         if file.filename == '':
+#             flash('No image selected for uploading')
+#             return redirect(url_for('image_page'))
 
-        if file and allowed_file(file.filename):
+#         if file and allowed_file(file.filename):
             
-            filename = secure_filename(file.filename)
-            # fullname=os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            # file.save(fullname)
+#             filename = secure_filename(file.filename)
+#             # fullname=os.path.join(app.config['UPLOAD_FOLDER'], filename)
+#             # file.save(fullname)
             
-            try:
-                image = Image.open(file)
-                image = np.array(image)
-                result = DeepFace.analyze(image,actions=['emotion'])
-                print(result)
-                return render_template('resultimage.html',filename="",resultemotion=result['dominant_emotion'])
-            except:
-                flash('Please recheck image clarity and reupload again.')
-                return redirect(url_for('image_page'))
-        else:
-            flash('Allowed image types are - png, jpg, jpeg, gif')
-            return redirect(url_for('image_page'))
+#             try:
+#                 image = Image.open(file)
+#                 image = np.array(image)
+#                 result = DeepFace.analyze(image,actions=['emotion'])
+#                 print(result)
+#                 return render_template('resultimage.html',filename="",resultemotion=result['dominant_emotion'])
+#             except:
+#                 flash('Please recheck image clarity and reupload again.')
+#                 return redirect(url_for('image_page'))
+#         else:
+#             flash('Allowed image types are - png, jpg, jpeg, gif')
+#             return redirect(url_for('image_page'))
 
 @app.route('/imagenl',methods=['GET','POST'])
 def imagenl_page():

@@ -2,6 +2,5 @@ flask
 gunicorn
 werkzeug
 numpy
-deepface
 tensorflow
 Pillow
