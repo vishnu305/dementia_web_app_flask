@@ -2,5 +2,5 @@ flask
 gunicorn
 werkzeug
 numpy
-tensorflow
+keras
 Pillow
