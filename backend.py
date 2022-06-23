@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import numpy as np
 # from deepface import DeepFace
 import pickle
-from tensorflow import keras
+from tflite import keras
 from PIL import Image
 
 
