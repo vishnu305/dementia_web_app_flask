@@ -2,6 +2,5 @@ flask
 gunicorn
 werkzeug
 numpy
-keras
 tensorflow==2.3.0
 Pillow

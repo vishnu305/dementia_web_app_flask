@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import numpy as np
 # from deepface import DeepFace
 import pickle
-from keras.models import load_model
+from tensorflow import keras
 from PIL import Image
 
 
@@ -100,7 +100,7 @@ def imagenl_page():
             # fullname=os.path.join(app.config['UPLOAD_FOLDER'], filename)
             # file.save(fullname)
             try:
-                model1 = load_model("./static/facial_model.h5")
+                model1 = keras.models.load_model("./static/facial_model.h5")
                 img = Image.open(file).convert('L')
                 x = np.array(img.resize((48,48)))
                 x = x.reshape(1,48,48,1)
