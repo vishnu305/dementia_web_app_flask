@@ -3,4 +3,5 @@ gunicorn
 werkzeug
 numpy
 tensorflow-cpu
+deepface
 Pillow
