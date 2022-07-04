@@ -1,4 +1,5 @@
 # Alzheimer’s Analysis
+## You can view the project here - https://dementia-classification.herokuapp.com/
 ### Introduction
 #### About Dementia
 Dementia is not a specific disease. It’s an overall term that describes a group of symptoms associated with a decline in memory or other thinking skills severe enough to reduce a person’s ability to perform everyday activities. Alzheimer’s disease accounts for 60 to 80 percent of cases. Vascular dementia, which occurs after a stroke, is the second most common dementia type. But there are many other conditions that can cause symptoms of dementia, including some that are reversible, such as thyroid problems and vitamin deficiencies.
